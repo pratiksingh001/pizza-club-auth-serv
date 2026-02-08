@@ -1,0 +1,16 @@
+{
+  "name": "auth-service",
+  "version": "1.0.0",
+  "description": "Pizza booking application authentication service",
+  "keywords": [
+    "node_js"
+  ],
+  "license": "ISC",
+  "author": "Pratik Singh",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node src/server.js"
+  }
+}
