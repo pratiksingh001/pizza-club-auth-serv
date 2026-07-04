@@ -13,18 +13,20 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "format:fix": "prettier . --write",
     "format:check": "prettier . --check",
-    "dev": "nodemon --watch src --exec \"node --loader ts-node/esm src/server.ts\"",
+    "dev": "nodemon --exec tsx src/server.ts",
     "prepare": "husky"
   },
   "devDependencies": {
     "@types/express": "github:types/express",
     "@types/node": "^25.2.3",
+    "@types/winston": "^2.4.4",
     "globals": "^17.4.0",
     "husky": "^9.1.7",
     "lint-staged": "^16.4.0",
     "nodemon": "^3.1.14",
     "prettier": "3.8.1",
     "ts-node": "^10.9.2",
+    "tsx": "^4.23.0",
     "typescript": "^5.9.3"
   },
   "lint-staged": {
@@ -34,6 +36,7 @@
   },
   "dependencies": {
     "dotenv": "^17.3.1",
-    "express": "^5.2.1"
+    "express": "^5.2.1",
+    "winston": "^3.19.0"
   }
 }
