@@ -12,5 +12,5 @@ export default {
   transform: {
     ...tsJestTransformCfg,
   },
-  verbose: true
+  verbose: true,
 };
