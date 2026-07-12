@@ -1,47 +1,52 @@
 {
-  "name": "auth-service",
-  "version": "1.0.0",
-  "description": "Pizza booking application authentication service",
-  "keywords": [
-    "node_js"
-  ],
-  "license": "ISC",
-  "author": "Pratik Singh",
-  "type": "module",
-  "main": "index.js",
-  "scripts": {
-    "test": "node --experimental-vm-modules node_modules/.bin/jest",
-    "format:fix": "prettier . --write",
-    "format:check": "prettier . --check",
-    "dev": "nodemon --watch src --exec \"node --loader ts-node/esm src/server.ts\"",
-    "prepare": "husky"
-  },
-  "devDependencies": {
-    "@types/express": "github:types/express",
-    "@types/jest": "^29.5.14",
-    "@types/node": "^25.2.3",
-    "@types/supertest": "^7.2.0",
-    "@types/winston": "^2.4.4",
-    "globals": "^17.4.0",
-    "husky": "^9.1.7",
-    "jest": "^29.7.0",
-    "jest-util": "^29.7.0",
-    "lint-staged": "^16.4.0",
-    "nodemon": "^3.1.14",
-    "prettier": "3.8.1",
-    "supertest": "^7.2.2",
-    "ts-jest": "^29.4.11",
-    "ts-node": "^10.9.2",
-    "typescript": "^5.9.3"
-  },
-  "lint-staged": {
-    "*.ts": [
-      "npm run format:fix"
-    ]
-  },
-  "dependencies": {
-    "dotenv": "^17.3.1",
-    "express": "^5.2.1",
-    "winston": "^3.19.0"
-  }
+   "name": "auth-service",
+   "version": "1.0.0",
+   "description": "Pizza booking application authentication service",
+   "keywords": [
+      "node_js"
+   ],
+   "license": "ISC",
+   "author": "Pratik Singh",
+   "type": "module",
+   "main": "index.js",
+   "scripts": {
+      "test": "node --experimental-vm-modules node_modules/.bin/jest",
+      "format:fix": "prettier . --write",
+      "format:check": "prettier . --check",
+      "dev": "cross-env NODE_ENV=dev nodemon --watch src --exec \"node --loader ts-node/esm src/server.ts\"",
+      "prepare": "husky",
+      "start": "ts-node src/index.ts",
+      "typeorm": "typeorm-ts-node-commonjs"
+   },
+   "devDependencies": {
+      "@types/express": "github:types/express",
+      "@types/jest": "^29.5.14",
+      "@types/node": "^25.2.3",
+      "@types/supertest": "^7.2.0",
+      "@types/winston": "^2.4.4",
+      "cross-env": "^10.1.0",
+      "globals": "^17.4.0",
+      "husky": "^9.1.7",
+      "jest": "^29.7.0",
+      "jest-util": "^29.7.0",
+      "lint-staged": "^16.4.0",
+      "nodemon": "^3.1.14",
+      "prettier": "3.8.1",
+      "supertest": "^7.2.2",
+      "ts-jest": "^29.4.11",
+      "ts-node": "^10.9.2",
+      "typescript": "^5.9.3"
+   },
+   "lint-staged": {
+      "*.ts": [
+         "npm run format:fix"
+      ]
+   },
+   "dependencies": {
+      "dotenv": "^17.3.1",
+      "express": "^5.2.1",
+      "reflect-metadata": "^0.2.2",
+      "typeorm": "1.0.0",
+      "winston": "^3.19.0"
+   }
 }
