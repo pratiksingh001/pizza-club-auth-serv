@@ -1,7 +1,25 @@
 import request from 'supertest';
 import app from '../../src/app.js';
+import { AppDataSource } from '../../src/config/data-source.js';
+import { User } from '../../src/entities/User.js';
+import type { DataSource } from 'typeorm';
 
 describe('POST /auth/register ', () => {
+  let connection: DataSource;
+
+  beforeAll(async () => {
+    connection = await AppDataSource.initialize();
+  });
+
+  afterAll(async () => {
+    await connection.destroy();
+  });
+
+  beforeEach(async () => {
+    await connection.dropDatabase();
+    await connection.synchronize();
+  });
+
   describe('Happy Path: Given all fields', () => {
     it('should return 201 status code', async () => {
       // AAA
@@ -50,9 +68,12 @@ describe('POST /auth/register ', () => {
       };
 
       // Act
-      const res = await request(app).post('/auth/register').send(userData);
+      await request(app).post('/auth/register').send(userData);
 
       //Assert
+      const userRepository = connection.getRepository(User);
+      const users = await userRepository.find();
+      expect(users).toHaveLength(1);
     });
   });
 
